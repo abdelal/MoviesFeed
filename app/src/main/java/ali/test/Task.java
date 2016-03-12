@@ -36,11 +36,9 @@ public class Task extends AsyncTask<String, Void, ArrayList<Movie>> {
             Gson gson = builder.create();
             JSONObject jsono = new JSONObject(sjson1);
 
-            System.out.println("*****************************");
             JSONObject feed = jsono.getJSONObject("feed");
             JSONArray movies1 = feed.getJSONArray("entry");
-            System.out.println(feed.toString());
-            System.out.println(movies1.toString());
+
 
             for (int i = 0; i < movies1.length(); i++) {
 
@@ -54,9 +52,7 @@ public class Task extends AsyncTask<String, Void, ArrayList<Movie>> {
 
 
                 Movie movie = gson.fromJson(childs, Movie.class);
-                System.out.println(movie.getImName().getLabel());
-                System.out.println(movie.getSummary().getLabel());
-                System.out.println(movie.getImImage().get(1));
+
                 movies.add(movie);
 
 

@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.gson.internal.LinkedTreeMap;
 import com.squareup.picasso.Picasso;
 
@@ -52,7 +54,7 @@ public class Radapter
         Movie currentItem = data.get(position);
         holder.tvtitle.setText(currentItem.getImName().getLabel().toString());
         holder.tvplot.setText(currentItem.getSummary().getLabel().toString());
-
+        YoYo.with(Techniques.BounceIn).playOn(holder.view);
         String url = currentItem.getLink().get(0).getAttributes().getHref().toString();
         LinkedTreeMap image = (LinkedTreeMap) currentItem.getImImage().get(0);
         String imageurl = image.get("label").toString();
@@ -74,14 +76,14 @@ public class Radapter
         ImageView ivthumb;
         TextView tvtitle;
         TextView tvplot;
-
+        View view;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ivthumb = (ImageView) itemView.findViewById(R.id.ivthumb);
             tvtitle = (TextView) itemView.findViewById(R.id.tvtitle);
             tvplot = (TextView) itemView.findViewById(R.id.tvplot);
-
+            view= itemView;
         }
 
         @Override

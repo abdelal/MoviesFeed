@@ -1,7 +1,6 @@
 package ali.test;
 
 import android.graphics.Bitmap;
-import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
